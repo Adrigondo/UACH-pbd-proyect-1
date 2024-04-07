@@ -7,7 +7,9 @@ selectedOperation=""
 selectedInfoFile=0
 currentMenu=""
 
+flagsReceived=false
 while getopts ":at" selectedOption; do
+  flagsReceived=true
   case ${selectedOption} in
     'a' )
         echo "Bienvenido a la guía rápida de Agile, para continuar seleccione un tema:"
@@ -71,7 +73,8 @@ while getopts ":at" selectedOption; do
       ;;
   esac
 done
-if [[ ${selectedOption} == '?' ]]; then
+
+if ! $flagsReceived ; then
   echo "Falta un argumento:"
   echo "  -a Revisar manual de Agile"
   echo "  -t Revisar manual de metodologías tradicionales"
@@ -151,7 +154,7 @@ case $selectedOperation in
     fi
   ;;
 4 )
-    selectedOperation=$((selectedOperation - 1))
+    # selectedOperation=$((selectedOperation - 1))
     echo "> Leer base de información."
 
     # Todo
@@ -160,7 +163,7 @@ case $selectedOperation in
     cat ${selectedInfoFile}
   ;;
 * )
-    echo "Selección inválida. Por favor, seleccione un número del 1 al 3."
+    echo "Selección inválida. Por favor, seleccione un número del 1 al 4."
   ;;
 esac
 
