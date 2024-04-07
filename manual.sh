@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# Creación de directorio de información y documentos .inf
+infoFolder="./info"
+infoFileNames=("./info/scrum.inf" "./info/xp.inf" "./info/kanban.inf" "./info/crystal.inf" "./info/cascade.inf" "./info/spiral.inf" "./info/vmodel.inf")
+
+mkdir -p ${infoFolder}
+
+for((i = 0; i < ${#infoFileNames[@]}; i++)); do
+    touch ${infoFileNames[i]}
+done
+
+# - - - - - 
+
 selectedOption=""
 selectedSection=""
 selectedSectionName=""
