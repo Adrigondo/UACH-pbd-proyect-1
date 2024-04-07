@@ -4,6 +4,7 @@ selectedOption=""
 selectedSection=""
 selectedSectionName=""
 selectedOperation=""
+selectedInfoFile=0
 currentMenu=""
 
 while getopts ":at" selectedOption; do
@@ -17,15 +18,19 @@ while getopts ":at" selectedOption; do
         read -p "Seleccione una opción (1-4): " selectedSection
         case $selectedSection in
         1 )
+            selectedInfoFile=${infoFileNames[0]}
             selectedSectionName="SCRUM"
           ;;
         2 )
+            selectedInfoFile=${infoFileNames[1]}
             selectedSectionName="X.P."
           ;;
         3 )
+            selectedInfoFile=${infoFileNames[2]}
             selectedSectionName="Kanban"
           ;;
         4 )
+            selectedInfoFile=${infoFileNames[3]}
             selectedSectionName="Crystal"
           ;;
         * )
@@ -42,12 +47,15 @@ while getopts ":at" selectedOption; do
 
         case $selectedSection in
         1 )
+            selectedInfoFile=${infoFileNames[4]}
             selectedSectionName="Cascada"
           ;;
         2 )
+            selectedInfoFile=${infoFileNames[5]}
             selectedSectionName="Espiral"
           ;;
         3 )
+            selectedInfoFile=${infoFileNames[6]}
             selectedSectionName="Modelo V"
           ;;
         * )
@@ -86,36 +94,74 @@ case $selectedOperation in
     read -p "Ingresa el nombre del concepto: " concept
     read -p "Ingresa la definición del concepto: " definition
 
-    # Todo: Save concept and definition into file.
+    # Todo
+    # Validate user input
+
+    echo -e "${concept} .- ${definition}\n" >> ${selectedInfoFile}
+    echo "Concepto y definición agregados con éxito."
   ;;
 2 )
     echo "> Buscar"
     concept=""
     read -p "Ingresa el concepto a buscar: " concept
 
-    # Todo
-    # Search concept using REGEX from the file with the selectedSectionName name
-    # If the concept doesn't exists display an error message.
-    # If the concept exists, display the definition of the concept
+    # Encuentra todas las líneas donde se cumpla la condición:
+    # concept .-
+    regexLinesFoundStr=$(grep -inw "${concept} .-" ${selectedInfoFile} | cut -d: -f1)
+
+    # Si el concepto no existe (regexLinesFoundStr es nulo), salta mensaje de error.
+    if [ -z "$regexLinesFoundStr" ]; then
+      echo "Concepto inválido: ${concept}"
+    else
+      regexLinesFoundArr=()
+      while read -r lineNumber; do
+        regexLinesFoundArr+=("$lineNumber")
+      done <<< "$regexLinesFoundStr"
+
+      sed -n "${regexLinesFoundArr[0]}p" "${selectedInfoFile}" | sed 's/.*\.- //'
+    fi
   ;;
 3 )
     echo "> Eliminar información"
     concept=""
     read -p "Ingresa el concepto que desea eliminar: " concept
 
-    # Todo
-    # Delete the concept from the file with the selectedSectionName name
-    # Check if the concept extists, if not, display an error message
+    # Encuentra todas las líneas donde se cumpla la condición:
+    # concept .-
+    regexLinesFoundStr=$(grep -inw "${concept} .-" ${selectedInfoFile} | cut -d: -f1)
+    regexLinesFoundArr=()
+
+    # Saca los números de líneas para volverlos numeros individuales con posiciones propias.
+    # (La operación anterior devuelve un solo string con numeros separados por espacios, por eso se hace este paso).
+    while read -r lineNumber; do
+      regexLinesFoundArr+=("$lineNumber")
+    done <<< "$regexLinesFoundStr"
+
+    definitionLocation=${regexLinesFoundArr[0]}
+
+    # Borra la línea donde se encuentra la definición que nos interesa.
+    # Antes de ello, borra la línea que le sigue a donde se encuentra la definición (el espacio que separa las distintas definiciones).
+    # Se hace en este orden para evitar perder la estructura del archivo de texto.
+    if [ -z "$definitionLocation" ]; then  
+      echo "Concepto inválido: ${concept}"
+    else
+      sed -i "$((definitionLocation + 1))d" ${selectedInfoFile}
+      sed -i "${definitionLocation}d" ${selectedInfoFile}
+      echo "Concepto borrado con éxito."
+    fi
   ;;
 4 )
+    selectedOperation=$((selectedOperation - 1))
     echo "> Leer base de información."
 
     # Todo
-    # Show all the information of the file with the selectedSectionName name
     # If the file doesn't exists or it is empty, display an error message
+
+    cat ${selectedInfoFile}
   ;;
 * )
     echo "Selección inválida. Por favor, seleccione un número del 1 al 3."
   ;;
+esac
 
 
