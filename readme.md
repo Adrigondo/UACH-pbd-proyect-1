@@ -1,19 +1,19 @@
-# Project Title
+# Bash Manual of Development Metodologies
 
-One Paragraph of project description goes here
+Aplicacion de apoyo para el aprendizaje acerca de las diferentes metodologias de desarrollo agil de software.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Asegurar que se tenga *Docker* instalado. Generar una imagen de Docker que requieras usar de la siguiente forma:
+
+```
+docker pull Nombre_Etiqueta
+```
 
 ### Prerequisites
 
 - Linux Operating System
 - Docker
-
-```
-Give examples
-```
 
 ### Installing
 
@@ -63,19 +63,13 @@ Add additional notes about how to deploy this on a live system
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
-## Contributing
-
-- ChatGPT
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
 ## Versioning
 
 Version 1.0.0
 
 ## Authors
 
-* **Adrian Alejandro Gonzales Dominguez** - 
+* **Adrian Alejandro Gonzales Dominguez** - 359834
 * **Hector Daniel Medrano Meza** - 361345
 * **Manuel Abraham Escudero Moreno** - 355208
 
@@ -85,7 +79,5 @@ This project is licensed under the MIT License - see the [license.txt](license.t
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* ChatGPT
 
