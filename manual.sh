@@ -56,9 +56,9 @@ while true; do
   case $currentMenu in
   1)
     selectedSection=0
-    echo "Bienvenido a la guía rápida de Agile:"
+    echo "Bienvenido a la guía rápida de Agile."
     while [ $selectedSection -eq 0 ]; do
-      echo "Seleccione un tema:"
+      echo "Seleccione un tema."
       echo "1) SCRUM"
       echo "2) X.P."
       echo "3) Kanban"
@@ -94,7 +94,7 @@ while true; do
     selectedSection=0
     echo "Bienvenido a la guía rapida de metodologías tradicionales"
     while [ $selectedSection -eq 0 ]; do
-      echo "Seleccione un tema:"
+      echo "Seleccione un tema."
       echo "1) Cascada"
       echo "2) Espiral"
       echo "3) Modelo V"
@@ -220,7 +220,7 @@ while true; do
       echo "1. Volver al menú anterior"
       echo "2. Realizar otra operación"
       echo "3. Salir de la aplicación: "
-      read -p "Seleccione una opción (1-4): " choice
+      read -p "Seleccione una opción (1-3): " choice
 
       case $choice in
       1)

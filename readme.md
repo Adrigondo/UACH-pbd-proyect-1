@@ -4,17 +4,17 @@ Bash application for support on learning the different agile and other tradition
 
 ## Getting Started
 
-To use this manual, download the image `amamut_dev_tech_manual`.
+To use this manual, download the image `hecmeduach/amamut_dev_tech_manual`.
 ```sh
-docker pull amamut_dev_tech_manual
+docker pull hecmeduach/amamut_dev_tech_manual
 ```
 You can work on the manual for agile development methodologies with the `-a` argument.
 ```sh
-docker run -ti --name=agile-manual amamut_dev_tech_manual -a
+docker run -ti --name=agile-manual hecmeduach/amamut_dev_tech_manual -a
 ```
 Or, on the manual for traditional development methodologies with the `-t` argument.
 ```sh
-docker run -ti --name=traditional-manual amamut_dev_tech_manual -t
+docker run -ti --name=traditional-manual hecmeduach/amamut_dev_tech_manual -t
 ```
 Finally, to restart the manual container:
 ```sh
@@ -23,7 +23,7 @@ docker start -i agile-manual
 
 ### Prerequisites
 
-- Linux Mint, Ubutu or MacOSX. We haven't tested with another OS.
+- Deployed for Linux Arm64. We have tested with LinuxMint and Ubuntu. Although it works with MacOS, it is not intended for this OS.
 - Docker
 
 ### Installing
