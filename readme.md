@@ -32,7 +32,7 @@ To install the project or run your own image, first clone this git repository. Y
 ```
 docker build -t [image_name] .
 ```
-Then execute the commands from the Getting Started section but with the new image name.
+Then execute the commands from the [Getting Started](#license) section but with the new image name.
 
 ## Deployment
 
@@ -55,7 +55,7 @@ Version 1.0.0
 
 ## License
 
-This project is licensed under the MIT License - see the [license.txt](license.txt) file for details
+This project is licensed under the MIT License - see the [license.txt](license.md) file for details
 
 ## Acknowledgments
 
