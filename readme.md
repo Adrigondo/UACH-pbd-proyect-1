@@ -55,7 +55,7 @@ Version 1.0.0
 
 ## License
 
-This project is licensed under the MIT License - see the [license.txt](license.md) file for details
+This project is licensed under the MIT License - see the [license.md](license.md) file for details
 
 ## Acknowledgments
 
