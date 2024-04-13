@@ -1,37 +1,38 @@
 # Bash Manual of Development Metodologies
 
-Aplicacion de apoyo para el aprendizaje acerca de las diferentes metodologias de desarrollo agil de software.
+Bash application for support on learning the different agile and other traditional software development methodologies. Its' a blank manual.
 
 ## Getting Started
 
-Asegurar que se tenga *Docker* instalado. Generar una imagen de Docker que requieras usar de la siguiente forma:
-
+To use this manual, download the image `amamut_dev_tech_manual`.
+```sh
+docker pull amamut_dev_tech_manual
 ```
-docker pull Nombre_Etiqueta
+You can work on the manual for agile development methodologies with the `-a` argument.
+```sh
+docker run -ti --name=agile-manual amamut_dev_tech_manual -a
+```
+Or, on the manual for traditional development methodologies with the `-t` argument.
+```sh
+docker run -ti --name=traditional-manual amamut_dev_tech_manual -t
+```
+Finally, to restart the manual container:
+```sh
+docker start -i agile-manual
 ```
 
 ### Prerequisites
 
-- Linux Operating System
+- Linux Mint, Ubutu or MacOSX. We haven't tested with another OS.
 - Docker
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
+To install the project or run your own image, first clone this git repository. You'll find the manual code in `manual.sh`. Make the modifications you want. To build an image from the modified file, assuming you're in the repository folder in the terminal:
 ```
-Give the example
+docker build -t [image_name] .
 ```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+Then execute the commands from the Getting Started section but with the new image name.
 
 ## Running the tests
 
@@ -79,5 +80,4 @@ This project is licensed under the MIT License - see the [license.txt](license.t
 
 ## Acknowledgments
 
-* ChatGPT
 
