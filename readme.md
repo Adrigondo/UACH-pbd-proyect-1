@@ -69,7 +69,7 @@ Version 1.0.0
 
 ## Authors
 
-* **Adrian Alejandro Gonzales Dominguez** - 359834
+* **Adrian Alejandro González Domínguez** - 359834
 * **Hector Daniel Medrano Meza** - 361345
 * **Manuel Abraham Escudero Moreno** - 355208
 
