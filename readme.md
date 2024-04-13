@@ -32,7 +32,7 @@ To install the project or run your own image, first clone this git repository. Y
 ```
 docker build -t [image_name] .
 ```
-Then execute the commands from the [Getting Started](#license) section but with the new image name.
+Then execute the commands from the [Getting Started](#getting-started) section but with the new image name.
 
 ## Deployment
 
